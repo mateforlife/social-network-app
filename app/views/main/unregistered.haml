@@ -4,6 +4,4 @@
             %h1.no-margin.bold.light-blue-text Social-Network
             %p.no-margin Conecta y comparte con los demas
             .top-space
-                aqui va el login
-            .large-padding.text-center
-            =link_to "Crear cuenta", new_user_registration_path
+                =render 'devise/registrations/new'
