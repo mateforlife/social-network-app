@@ -1,0 +1,17 @@
+%h2 Ingresa
+= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+        =f.email_field :email, autofocus: true, class: 'mdl-textfield__input'
+        =f.label :email, class: 'mdl-textfield__label grey-text' 
+
+    .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+        =f.password_field :password, class: 'mdl-textfield__input'
+        =f.label :password, class: 'mdl-textfield__label grey-text'
+
+    .top-space
+        .row-middle-xs
+            =grid xs:12, md:6 do
+                =f.submit 'Ingresar', class: 'mdl-button mdl-js-button mdl-button--raised mdl-button--colored'
+            =grid xs:12, md:6 do
+                .top-space
+                =render 'devise/shared/links'
