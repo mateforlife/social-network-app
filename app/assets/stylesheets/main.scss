@@ -5,5 +5,5 @@
 .main-background{
     background-image: url(#{asset_path('background.jpg')});
     background-size: cover;
-    background-repeat: none;
+    //background-repeat: none;
 }
