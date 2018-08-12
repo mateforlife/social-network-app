@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
   protected
 
   def set_layout
-    'application'
+    if devise_controller?
+      'landing'
+    else
+      'application'
+    end
   end
 end
