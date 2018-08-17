@@ -1,1 +1,10 @@
-%h1 estas registrado!
+.top-space
+    .row.center-xs
+        =grid xs:8, md:10 do
+            .row
+                =grid lg:2, sm:3, xs:10 do
+                    %ul.no-list.no-margin.text-left
+                        %li=link_to 'explorar', '#'
+                =grid xs:10, class: 'col-sm' do
+                    =render 'posts/form'
+                    #posts

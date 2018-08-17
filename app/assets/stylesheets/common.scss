@@ -11,12 +11,28 @@ html, body{
     margin: 0;
 }
 
+.no-list{
+    list-style: none;
+}
+
 .big-padding{
     padding: 2em 1.5em;
 }
 
 .top-space{
     margin-top: 1em;
+}
+
+.full-width{
+    width: 100%;
+}
+
+.text-right{
+    text-align: right;
+}
+
+.text-left{
+    text-align: left;
 }
 
 .underline{

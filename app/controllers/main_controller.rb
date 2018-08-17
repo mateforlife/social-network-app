@@ -1,16 +1,18 @@
 # frozen-string-literal: true
 
 class MainController < ApplicationController
+
   def home
+    @post = Post.new
   end
 
   def unregistered
   end
 
-  protected
+  # protected
 
-  def set_layout
-    return 'landing' if action_name == 'unregistered'
-    super
-  end
+  # def set_layout
+  #   return 'landing' if action_name == 'unregistered'
+  #   super
+  # end
 end

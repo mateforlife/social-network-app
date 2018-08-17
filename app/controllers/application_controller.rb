@@ -1,14 +1,14 @@
 class ApplicationController < ActionController::Base
 
-  layout :set_layout
+  # layout :set_layout
 
-  protected
+  # protected
 
-  def set_layout
-    if devise_controller?
-      'landing'
-    else
-      'application'
-    end
-  end
+  # def set_layout
+  #   if devise_controller?
+  #     'landing'
+  #   else
+  #     'application'
+  #   end
+  # end
 end
