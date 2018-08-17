@@ -2,8 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+body{
+    background-color: #eee;
+}
+
 .main-background{
     background-image: url(#{asset_path('background.jpg')});
     background-size: cover;
-    //background-repeat: none;
+    background-repeat: none;
 }
