@@ -3,7 +3,7 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  has_many :posts
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable,
          omniauth_providers: [:facebook]
@@ -11,6 +11,19 @@ class User < ApplicationRecord
   validates :username, presence: true, length: { in: 3..20 }
   validates_uniqueness_of :username
   validate :username_regex
+
+  has_many :posts
+
+  #has_one_attached :avatar
+  #has_one_attached :cover
+
+  has_attached_file :avatar, styles: { thumb: '100x100', medium: '300x300' },
+                             default_url: '/images/:style/missing.png'
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
+
+  has_attached_file :cover, styles: { thumb: '400x300', medium: '800x600' },
+                            default_url: '/images/:style/missing_cover.png'
+  validates_attachment_content_type :cover, content_type: /\Aimage\/.*\Z/
 
   def self.from_omniauth(auth)
     where(provider: auth['provider'], uid: auth['uid']).first_or_create do |user|

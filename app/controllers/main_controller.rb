@@ -1,10 +1,9 @@
 # frozen-string-literal: true
 
 class MainController < ApplicationController
-
   def home
     @post = Post.new
-    @posts = Post.all
+    @posts = Post.order('created_at DESC')
   end
 
   def unregistered

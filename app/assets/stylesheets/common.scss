@@ -27,8 +27,20 @@ html, body{
     margin-top: 1em;
 }
 
+.circle{
+    border-radius: 50%;
+}
+
+.border-bottom{
+    border-bottom: 1px solid currentcolor;
+}
+
 .full-width{
     width: 100%;
+}
+
+.medium-text{
+    font-size: 1.2em;
 }
 
 .text-right{

@@ -1,0 +1,29 @@
+.row.center-xs
+    =grid xs:10, sm:8, md:6, lg:4 do
+        .white.mdl-shadow--2dp.top-space.relative
+            .big-padding.white-text.text-left.cover{ style: "background-image:url(#{@user.cover.url(:medium)})" }
+                .top-space
+                    =circle_img @user.avatar.url(:medium), 100
+            %section.border-bottom.top-space
+                .row.middle-xs
+                    =grid class: 'col-xs' do
+                        %h1.no-margin.medium
+                            %span=best_in_place_if current_user == @user, @user, :name
+                            %span=best_in_place_if current_user == @user, @user, :username
+            .large-padding
+                .row
+                    =grid class: 'col-xs' do
+                        seguidores
+                    =grid class: 'col-xs' do
+                        =@user.posts.count
+                        Posts
+                .row.center-xs
+                    =grid xs:5, md:10 do
+                        %span=best_in_place_if current_user == @user, @user, :about
+            -if current_user == @user
+                .top-space
+                    =form_for @user do |f|
+                        =f.file_field :cover
+                        =f.file_field :avatar
+                        =f.submit 'Subir'
+

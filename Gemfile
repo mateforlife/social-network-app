@@ -34,6 +34,13 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 # Reduces boot times through caching; required in config/boot.rb
+
+gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
+
+#gem "aws-sdk-s3", require: false
+
+gem 'best_in_place'
+
 gem 'jquery-rails'
 
 gem 'haml-rails'
