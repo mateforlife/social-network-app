@@ -35,7 +35,10 @@ gem 'jbuilder', '~> 2.5'
 
 # Reduces boot times through caching; required in config/boot.rb
 
-gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
+#deprecated
+#gem 'remotipart', github: 'urielhdz/remotipart'
+
+gem "paperclip", git: 'git://github.com/thoughtbot/paperclip.git'
 
 #gem "aws-sdk-s3", require: false
 
@@ -50,6 +53,13 @@ gem 'devise', github: 'plataformatec/devise'
 gem 'omniauth-facebook'
 
 gem 'flexbox_rb'
+
+gem 'aasm'
+
+#gem 'draper', github: 'audionerd/draper', branch: 'rails5'
+
+#Activemodel serializers xml to work whit draper
+#gem 'activemodel-serializers-xml', github: 'rails/activemodel-serializers-xml'
 
 gem 'bootsnap', '>= 1.1.0', require: false
 

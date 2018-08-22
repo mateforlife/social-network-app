@@ -27,9 +27,7 @@ class AccountsController < ApplicationController
   end
 
   def authenticate_owner!
-    if current_user != @user
-      redirect_to root_path, notice: 'no tiene permisos necesarios', status: :unauthorized
-    end
+    redirect_to root_path, notice: 'no tiene permisos necesarios', status: :unauthorized if current_user != @user
   end
 
   def user_params
