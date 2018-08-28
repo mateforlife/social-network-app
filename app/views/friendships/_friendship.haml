@@ -1,0 +1,9 @@
+.row.middle-xs
+    =grid xs:2, md:1 do
+        =circle_img friendship.user.avatar.url(:thumb), 50
+    =grid xs:7, md:8, class: 'text-left' do
+        =friendship.user.username
+    =grid xs:3.1 do
+        -if friendship.pending?
+            =link_to 'Aceptar', friendship_path(friendship, status: 1), method: :patch, class: 'right-space mdl-button mdl-js-button mdl-button--raised mdl-button--colored'
+            =link_to 'Denegar', friendship_path(friendship, status: 0), method: :patch, class: 'mdl-button mdl-js-button mdl-button--raised mdl-button--accent'

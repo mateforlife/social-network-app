@@ -3,9 +3,12 @@
 Rails.application.routes.draw do
   resources :posts
   resources :accounts, as: :users, only: %i[show update]
+
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
+
+  resources :friendships, only: %i[create update index]
 
   post '/custom_sign_up', to: 'users/omniauth_callbacks#custom_sign_up'
 

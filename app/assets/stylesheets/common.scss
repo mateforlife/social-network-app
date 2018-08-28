@@ -7,8 +7,16 @@ html, body{
     height: 100%;
 }
 
+.right-space{
+    margin-right: 0.5em
+}
+
 .no-margin{
     margin: 0;
+}
+
+.top-space{
+    margin-top: 1.5em;
 }
 
 .no-list{
@@ -23,8 +31,8 @@ html, body{
     padding: 10px 15px;
 }
 
-.top-space{
-    margin-top: 1em;
+.padding-bottom{
+    padding-bottom: 1em;
 }
 
 .circle{
