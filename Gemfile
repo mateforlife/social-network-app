@@ -56,6 +56,9 @@ gem 'flexbox_rb'
 
 gem 'aasm'
 
+# draper for decorators
+gem 'draper'
+
 #gem 'draper', github: 'audionerd/draper', branch: 'rails5'
 
 #Activemodel serializers xml to work whit draper
