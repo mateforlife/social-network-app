@@ -41,6 +41,14 @@ class User < ApplicationRecord
     Friendship.friends?(self, friend)
   end
 
+  def friend_ids
+    Friendship.active.where(user: self).pluck(:friend_id)
+  end
+
+  def user_ids
+    Friendship.active.where(friend: self).pluck(:user_id)
+  end
+
   private
 
   def username_regex

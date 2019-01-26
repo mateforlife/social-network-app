@@ -3,7 +3,8 @@
 class MainController < ApplicationController
   def home
     @post = Post.new
-    @posts = Post.order('created_at DESC')
+    @posts = Post.all_for_user(current_user).newest.paginate(page: params[:page],
+                                                             per_page: 15)
   end
 
   def unregistered
