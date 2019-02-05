@@ -3,8 +3,7 @@
 class MainController < ApplicationController
   def home
     @post = Post.new
-    @posts = Post.all_for_user(current_user).newest.paginate(page: params[:page],
-                                                             per_page: 15)
+    @posts = Post.all_for_user(current_user).newest
   end
 
   def unregistered
