@@ -2,10 +2,7 @@ class FriendshipDecorator < Draper::Decorator
   delegate_all
 
   def user_view
-    if h.current_user == object.user
-      return object.friend
-    end
-    return object.user
+    h.current_user == object.user ? object.friend : object.user
   end
 
   def status_or_buttons
@@ -33,7 +30,6 @@ class FriendshipDecorator < Draper::Decorator
     h.link_to 'Denegar', h.friendship_path(object, status: 0), method: :patch,
                                                                class: 'mdl-button mdl-js-button mdl-button--raised mdl-button--accent'
   end
-
 
   # Define presentation-specific methods here. Helpers are accessed through
   # `helpers` (aka `h`). You can override attributes, for example:
