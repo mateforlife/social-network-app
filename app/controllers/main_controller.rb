@@ -3,7 +3,7 @@
 class MainController < ApplicationController
   def home
     @post = Post.new
-    @posts = Post.order('created_at DESC')
+    @posts = Post.all_for_user(current_user).newest
   end
 
   def unregistered

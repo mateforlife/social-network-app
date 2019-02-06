@@ -6,6 +6,10 @@
                     %ul.no-list.no-margin.text-left
                         %li=link_to 'explorar', '#'
                 =grid xs:10, class: 'col-sm' do
-                    .white.large-padding=render 'posts/form'
+                    .white.large-padding
+                        =render 'posts/form'
                     #posts
-                        =render @posts
+                        .data
+                            =render @posts
+                    #pagination        
+
