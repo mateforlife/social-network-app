@@ -32,7 +32,7 @@ gem 'sidekiq'
 gem 'sinatra', require: nil
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
-
+gem 'annotate'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

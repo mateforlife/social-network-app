@@ -1,5 +1,30 @@
 # frozen-string-literal: true
 
+# == Schema Information
+#
+# Table name: users
+#
+#  id                     :bigint(8)        not null, primary key
+#  email                  :string           default(""), not null
+#  encrypted_password     :string           default(""), not null
+#  reset_password_token   :string
+#  reset_password_sent_at :datetime
+#  remember_created_at    :datetime
+#  username               :string
+#  name                   :string
+#  uid                    :string
+#  provider               :string
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
+#  about                  :text
+#  avatar_file_name       :string
+#  avatar_content_type    :string
+#  avatar_file_size       :bigint(8)
+#  avatar_updated_at      :datetime
+#  cover_file_name        :string
+#  cover_content_type     :string
+#  cover_file_size        :bigint(8)
+#  cover_updated_at       :datetime
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -18,9 +43,6 @@ class User < ApplicationRecord
   has_many :friends_added, through: :friendships, source: :friend
   has_many :friends_who_added, through: :friendships, source: :user
 
-  #has_one_attached :avatar
-  #has_one_attached :cover
-
   has_attached_file :avatar, styles: { thumb: '100x100', medium: '300x300' },
                              default_url: '/images/:style/missing.png'
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
@@ -35,6 +57,10 @@ class User < ApplicationRecord
       user.name = auth['info']['name']
       user.password = Devise.friendly_token[0, 20]
     end
+  end
+
+  def unviewed_notifications_count
+    Notification.for_user(self.id)
   end
 
   def my_friend?(friend)
