@@ -7,6 +7,5 @@ App.post = App.cable.subscriptions.create "PostChannel",
 
   received: (data) ->
     if data.action == 'new_post'
-      console.log(data)
       $('#posts .data').prepend(data.message)
     # Called when there's incoming data on the websocket for this channel

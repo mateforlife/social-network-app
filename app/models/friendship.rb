@@ -2,6 +2,8 @@
 
 class Friendship < ApplicationRecord
   include AASM
+  include Notificable
+
   belongs_to :user
   belongs_to :friend, class_name: 'User'
   validates :user_id, uniqueness: { scope: :friend_id,
@@ -22,6 +24,10 @@ class Friendship < ApplicationRecord
     Friendship.active.where(friend: user)
   end
 
+  def user_ids
+
+  end
+  
   aasm column: 'status' do
     state :pending, initial: true
     state :active

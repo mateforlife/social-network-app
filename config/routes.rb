@@ -1,5 +1,7 @@
 # frozen-string-literal: true
 
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
   resources :posts
   resources :accounts, as: :users, only: %i[show update]
@@ -21,5 +23,6 @@ Rails.application.routes.draw do
   end
 
   mount ActionCable.server => '/cable'
+  mount Sidekiq::Web => '/sidekiq'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

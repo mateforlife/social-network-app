@@ -1,6 +1,8 @@
 # frozen-string-literal: true
 
 class Post < ApplicationRecord
+  include Notificable
+
   belongs_to :user
 
   validates :body, presence: true
@@ -13,6 +15,10 @@ class Post < ApplicationRecord
     Post.where(user_id: user.id)
         .or(Post.where(user_id: user.friend_ids))
         .or(Post.where(user_id: user.user_ids))
+  end
+
+  def user_ids
+    self.user.friend_ids + self.user.user_ids
   end
 
   private
