@@ -3,6 +3,7 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  get 'notifications/index'
   resources :posts
   resources :accounts, as: :users, only: %i[show update]
 
@@ -11,6 +12,7 @@ Rails.application.routes.draw do
   }
 
   resources :friendships, only: %i[create update index]
+  resources :notifications, only: %i[create update index]
 
   post '/custom_sign_up', to: 'users/omniauth_callbacks#custom_sign_up'
 

@@ -20,5 +20,23 @@ body{
 #notification{
     width: 1.5em;
     height: 1.6em;
+    display: inline-block;
+    text-decoration: none;
     text-align: center;
+}
+
+#notifications{
+    position: absolute;
+    background: white;
+    top: 65px;
+    left: 0px;
+    width: 120px;
+    color: black;
+    max-height: 0px;
+    overflow: hidden;
+    transition: 0.4s;
+    &.active{
+        max-height: 300px;
+        padding: 10px 15px;
+    }
 }
